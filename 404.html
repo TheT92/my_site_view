@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Redirecting...</title>
+    <script>
+      // Redirect to index.html for SPA routing
+      var l = window.location;
+      var cwd = l.pathname.split('/').slice(0, -1).join('/') + '/';
+      l.replace(
+        cwd +
+        'index.html?' +
+        l.pathname.slice(cwd.length).replace(/&/g, '~and~') +
+        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+        l.hash
+      );
+    </script>
+  </head>
+  <body />
+</html>
